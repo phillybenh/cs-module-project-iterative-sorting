@@ -10,7 +10,7 @@ def binary_search(arr, target):
     low = 0
     high = len(arr)-1
     while low <= high:
-        middle = int((low+high)/2)
+        middle = (low+high)//2
         if target < arr[middle]:
             high = middle-1 # eliminate RHS
         elif target > arr[middle]:

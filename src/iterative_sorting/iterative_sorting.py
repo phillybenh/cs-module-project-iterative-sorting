@@ -3,11 +3,9 @@ def selection_sort(arr):
     # loop through n-1 elements
     for i in range(0, len(arr) - 1):
         cur_index = i
-        # can do this w/o smallest_index, but will do it the Lambda way
         smallest_index = cur_index
-        # TO-DO: find next smallest element
-        # (hint, can do in 3 loc)
-        # Your code here
+        # find next smallest element
+        # itertate thru the unsorted portion
         for j in range(cur_index + 1, len(arr)):
             if arr[smallest_index] > arr[j]:
                 smallest_index = j
@@ -21,18 +19,19 @@ def selection_sort(arr):
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
-    # Your code here
-    n = len(arr)
-    # 1. Loop through your array
-    for i in range(n):
-        # - Compare each element to its neighbor
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j+1]:
-                # - If elements in wrong position (relative to each other, 
-                # swap them)
-                arr[j], arr[j+1] = arr[j+1], arr[j]
-# 2. If no swaps performed, stop. Else, go back to the element at index 0 
-#     and repeat step 1.
+	# it traverses the array
+    # loop until no more swaps occur
+    swaps_occurred = True
+
+    while swaps_occurred:
+        swaps_occurred = False
+
+        for i in range(0, len(arr)-1):
+            # compare two elements
+            if arr[i] > arr[i+1]:
+                # swaps them if the two elements aren't in order
+                arr[i], arr[i+1] = arr[i+1], arr[i]
+                swaps_occurred = True
 
     return arr
 
